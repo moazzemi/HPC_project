@@ -1,3 +1,9 @@
+######
+## Kmeans clustering algorithm sequntial.
+###
+##
+####inspored by Antonoi Gulli's code at http://codingplayground.blogspot.com/2009/03/k-means-in-c.html
+#####
 CC=g++
 CFLAGS=-c -Wall -I /usr/local/include/boost-1_37/ -g
 LDFLAGS=-L /usr/local/lib 
@@ -13,6 +19,7 @@ $(EXECUTABLE): $(OBJECTS)
 
 .cpp.o:
 	$(CC) $(CFLAGS) $< -o $@
-
+run:
+	./k-means
 clean:
 	rm -fr *.o *~ $(EXECUTABLE)

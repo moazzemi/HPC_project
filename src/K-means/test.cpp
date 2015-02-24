@@ -16,6 +16,6 @@ int main(int argc, char* argv[])
 
   clusters.k_means();
   
-  std::cout << clusters;
+  //std::cout << clusters;
 
 }
