@@ -6,7 +6,8 @@
 #Authors:
 ####################
 TODO:
-
+create the top folder Makefile
+recursive Makefiles
 
 ####################
 NOTES:
