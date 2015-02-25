@@ -187,11 +187,19 @@ namespace Clustering{
 
       num_iterations++;
     } // end while (some_point_is_moving)
-
-    //shows mapping of each point to corresponding to cluster
+//    #ifdef VERBOSE
+    //shows mapping of each point to corresponding to cluster 
     std::cout << points_to_clusters__;
+//    #endif
+//    for (PointId i=0; i < num_points__; i++)
+//    {
+//      std::cout << "my_pid[" << i << "]= (" << p << ")" <<std::endl; 
+//    }
+//    std::cout << points__;
     //std::cout << std::endl << "Final clusters" << std::endl;
+    #ifdef VERBOSE
     //comment this if dont want Clusters to Points
-    std::cout << clusters_to_points__;
-  }
+    // std::cout << clusters_to_points__;
+    #endif
+}
 };

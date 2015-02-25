@@ -58,7 +58,7 @@ namespace Clustering{
 
       PointId i = 0;
       BOOST_FOREACH(Points::value_type p, ps.points__){     
-	os << "point["<<i++<<"]=" << p << std::endl;
+	os << ""<<i++<<", " << p << std::endl;
       }
       return os;
     };
@@ -88,7 +88,6 @@ namespace Clustering{
   //  This class represents a cluster
   // 
   class Clusters {
-
   private:
    
     ClusterId num_clusters__;    // number of clusters
@@ -116,6 +115,7 @@ namespace Clustering{
 
   public:
    
+    inline PointsToClusters pcMap() {return points_to_clusters__;}
     //
     // Dump ClustersToPoints
     //

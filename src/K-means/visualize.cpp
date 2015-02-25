@@ -6,7 +6,7 @@ namespace Clustering{
   std::ostream& operator << (std::ostream& os, Point& p)
   {
    BOOST_FOREACH(Point::value_type d, p)
-     { os << d << ",, "; } 
+     { os << d << ","; } 
    return os;
   }
 
@@ -48,10 +48,11 @@ namespace Clustering{
     PointId pid = 0;
     BOOST_FOREACH( PointsToClusters::value_type cid, pc)
     {
-      std::cout << "pid[" << pid << "] , " << cid << std::endl;
+      std::cout << "" << pid << ", " << cid << std::endl;
       pid ++;
     }
     return os;
   }
+
 }
 //#eof
