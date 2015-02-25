@@ -25,7 +25,7 @@ namespace Clustering{
   {
     BOOST_FOREACH(SetPoints::value_type pid, sp)
     {
-      os << "MY_pid=" << pid << " ";
+      os << " " << pid << ", ";
     }
     return os;
   }
@@ -48,7 +48,7 @@ namespace Clustering{
     PointId pid = 0;
     BOOST_FOREACH( PointsToClusters::value_type cid, pc)
     {
-      std::cout << "pid[" << pid << "]==" << cid << std::endl;
+      std::cout << "pid[" << pid << "] , " << cid << std::endl;
       pid ++;
     }
     return os;

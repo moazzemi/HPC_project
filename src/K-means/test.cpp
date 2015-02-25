@@ -5,9 +5,9 @@ using namespace Clustering;
 
 int main(int argc, char* argv[])
 {
-  ClusterId num_clusters = 30;
-  PointId num_points = 3000;
-  Dimensions num_dimensions = 10;
+  ClusterId num_clusters = 10;
+  PointId num_points = 1000;
+  Dimensions num_dimensions = 2;
 
   PointsSpace ps(num_points, num_dimensions);
   //std::cout << "PointSpace" << ps;

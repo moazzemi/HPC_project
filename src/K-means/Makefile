@@ -7,7 +7,7 @@
 CC=g++
 CFLAGS=-c -Wall -I /usr/local/include/boost-1_37/ -g
 LDFLAGS=-L /usr/local/lib 
-SOURCES=cluster.cpp test.cpp
+SOURCES=cluster.cpp test.cpp visualize.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
 EXECUTABLE=k-means
 
@@ -20,6 +20,6 @@ $(EXECUTABLE): $(OBJECTS)
 .cpp.o:
 	$(CC) $(CFLAGS) $< -o $@
 run:
-	./k-means
+	@./k-means
 clean:
 	rm -fr *.o *~ $(EXECUTABLE)
