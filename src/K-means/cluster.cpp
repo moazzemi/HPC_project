@@ -1,3 +1,7 @@
+#include <iostream>
+#include <cassert>
+#include <cstring>
+#include <fstream>
 #include "cluster.hpp"
 //#define VERBOSE
 
@@ -22,20 +26,46 @@ namespace Clustering{
   }
 
   //
-  // Init collection of points
+  // Init collection of points(rand)
   //  
+  
+  /*
   void PointsSpace::init_points()
   {     
     for (PointId i=0; i < num_points__; i++)
     {
       Point p;
       for (Dimensions d=0 ; d < num_dimensions__; d++)
-    	{ 
+      { 
+        
         p.push_back( rand() % 100 ); 
       }     
       points__.push_back(p);
      // std::cout << "my_pid[" << i << "]= (" << p << ")" <<std::endl;; 
     }
+  }  
+  */
+
+  //
+  // Init collection of points from file
+  //  
+  void PointsSpace::init_points()
+  {     
+    std::ifstream fs(filename__);
+    std::string value;
+    std::string line;
+    for (PointId i=0; i < num_points__; i++){
+      
+      while(std::getline(fs, line) ){
+        Point p;
+        std::istringstream lineStream(line);
+        while(std::getline(lineStream, value, ',')){
+          p.push_back(std::stod(value));
+        }  
+        points__.push_back(p);
+      }
+
+    }  
   }  
 
   //
@@ -189,7 +219,7 @@ namespace Clustering{
     } // end while (some_point_is_moving)
 //    #ifdef VERBOSE
     //shows mapping of each point to corresponding to cluster 
-    std::cout << points_to_clusters__;
+
 //    #endif
 //    for (PointId i=0; i < num_points__; i++)
 //    {
@@ -198,7 +228,7 @@ namespace Clustering{
 //    std::cout << points__;
     //std::cout << std::endl << "Final clusters" << std::endl;
     #ifdef VERBOSE
-    //comment this if dont want Clusters to Points
+        std::cout << points_to_clusters__; //comment this if dont want Clusters to Points
     // std::cout << clusters_to_points__;
     #endif
 }
