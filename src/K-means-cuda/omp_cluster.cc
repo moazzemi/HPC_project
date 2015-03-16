@@ -4,6 +4,7 @@
 #include <fstream>
 #include <string>
 #include "cluster.hpp"
+#include <omp.h>
 //#define VERBOSE
 
 namespace Clustering{

@@ -2,8 +2,18 @@
 #include "cluster.hpp"
 #include "timer.c"
 
+
 using namespace Clustering;
 
+/***
+*GPU main part
+*
+*
+***/
+void
+gpuKmeans(){
+
+}
 int main(int argc, char* argv[])
 {
 
@@ -32,12 +42,15 @@ int main(int argc, char* argv[])
   
   PointsSpace ps(num_points, num_dimensions, filename);
 
+  //std::cout << ps.getPoint(1)[0];
   #ifdef VERBOSE
   	std::cout << ps;
   	std::cout << "###" << std::endl;
   #endif
 
   Clusters clusters(num_clusters, ps);
+
+  gpuKmeans();
 
   stopwatch_init ();
   struct stopwatch_t* timer = stopwatch_create (); assert (timer);
@@ -52,3 +65,5 @@ int main(int argc, char* argv[])
   	std::cout << "clusters are:"<<std::endl<<clusters;
   #endif
 }
+
+

@@ -1,6 +1,7 @@
 #include <iostream>
 #include "cluster.hpp"
 #include "timer.c"
+#include <omp.h>
 
 using namespace Clustering;
 
