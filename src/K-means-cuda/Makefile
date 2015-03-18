@@ -63,11 +63,12 @@ cuda_main: $(CUDA_C_OBJ) $(CUDA_CU_OBJ)
 	$(CUDACC) $(LDFLAGS) -o $@ $(CUDA_C_OBJ) $(CUDA_CU_OBJ)
 
 #########
-run:
+runseq:
 	@./seq_main 1000 2 input/samples.txt 2
 runomp:
 	@./omp_main 1000 2 input/samples.txt 2
-
+runcuda:
+	@./cuda_main 1000 2 input/samples.txt 2
 clean:
 	rm -fr *.o *~ $(EXECUTABLE) seq_main \
 	cuda_main omp_main
