@@ -211,24 +211,15 @@ namespace Clustering{
 	  points_to_clusters__[pid] = to_cluster;
 	  clusters_to_points__[to_cluster].insert(pid);
 	  #ifdef VERBOSE
-    std::cout << "\t\tmove to cluster=" << to_cluster << std::endl;
-    #endif
-  }
+	    std::cout << "\t\tmove to cluster=" << to_cluster << std::endl;
+           #endif
+  	}
       }      
 
       num_iterations++;
     } 
-	// end while (some_point_is_moving)
-//    #ifdef VERBOSE
-    //shows mapping of each point to corresponding to cluster 
-
-//    #endif
-//    for (PointId i=0; i < num_points__; i++)
-//    {
-//      std::cout << "my_pid[" << i << "]= (" << p << ")" <<std::endl; 
-//    }
-//    std::cout << points__;
-     //std::cout << clusters_to_points__;
+     
+	//std::cout << clusters_to_points__;
     BOOST_FOREACH(Centroids::value_type& centroid, centroids__)
     {
       BOOST_FOREACH(Point::value_type& d, centroid)
@@ -239,7 +230,6 @@ namespace Clustering{
     #ifdef VERBOSE
     	std::cout << std::endl << "Final clusters" << std::endl;
         std::cout << points_to_clusters__; //comment this if dont want Clusters to Points
-    // std::cout << clusters_to_points__;
     #endif
 }
 };

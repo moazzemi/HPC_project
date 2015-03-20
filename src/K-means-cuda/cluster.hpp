@@ -171,30 +171,4 @@ namespace Clustering{
 
 };
 
-/*template <typename PointSpace>
-void from_file(PointSpace& sources, const char* filename) {
-
-  // WARNING, ERROR PRONE WITH #LINES AND #DIM
-  fprintf (stderr, "Loading input dataset from file: %s\n", filename);
-  {
-    std::ifstream fs(filename);
-    std::string value;
-    while(fs.good() ){
-      getline ( fs, value, ',' );
-      sources.push_back(std::stoi(value));
-      //std::cout << value << std::endl;
-    }
-    //load_data(fs, sources, ',');
-  }
-
-#ifdef __DEBUG
-  for (unsigned i = 0; i < sources.size(); ++i) {
-    for (unsigned j = 0; j < sources[i].size(); ++j) {
-      std::cout << sources[i][j] << " ";
-    }
-    std::cout << std::endl;
-  }
-#endif
-}
-*/
 #endif

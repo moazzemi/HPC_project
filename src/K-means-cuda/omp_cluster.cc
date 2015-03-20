@@ -119,7 +119,7 @@ namespace Clustering{
   void Clusters::initial_partition_points(){
     
     ClusterId cid;
-    
+    //#pragma omp parallel for  
     for (PointId pid = 0; pid < ps__.getNumPoints(); pid++){
       
       cid = pid % num_clusters__;
@@ -196,10 +196,10 @@ namespace Clustering{
 
 	    some_point_is_moving = true;
 	    #ifdef VERBOSE
-       std::cout << "\tcluster=" << cid 
+        	 std::cout << "\tcluster=" << cid 
 		      << " closer, dist=" << d << std::endl;	    
-      #endif
-    }
+             #endif
+          }
 	  cid++;
 	}
 	
@@ -212,9 +212,9 @@ namespace Clustering{
 	  points_to_clusters__[pid] = to_cluster;
 	  clusters_to_points__[to_cluster].insert(pid);
 	  #ifdef VERBOSE
-    std::cout << "\t\tmove to cluster=" << to_cluster << std::endl;
-    #endif
-  }
+   	 	 std::cout << "\t\tmove to cluster=" << to_cluster << std::endl;
+  	  #endif
+  	}
       }      
 
       num_iterations++;

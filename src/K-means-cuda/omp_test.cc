@@ -28,7 +28,7 @@ int main(int argc, char* argv[])
   ClusterId num_clusters = k;
   PointId num_points = num_pts;
   Dimensions num_dimensions = dim;
-  
+  omp_set_num_threads(16); 
 
   
   PointsSpace ps(num_points, num_dimensions, filename);
@@ -47,7 +47,7 @@ int main(int argc, char* argv[])
   clusters.k_means();
   
   long double t_seq = stopwatch_stop (timer);
-  std::cout <<  "time sequential is :"<< t_seq << std::endl;
+  std::cout <<  "time openMP is :"<< t_seq << std::endl;
   
   #ifdef VERBOSE
   	std::cout << "clusters are:"<<std::endl<<clusters;

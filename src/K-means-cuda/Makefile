@@ -14,7 +14,7 @@ SOURCES=cluster.cpp test.cpp visualize.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
 EXECUTABLE=k-means
 
-all: cuda
+all: seq omp cuda
 #seq omp cuda
 # $(SOURCES) $(EXECUTABLE)
 	
@@ -38,7 +38,7 @@ OMP_SRC	=	omp_test.cpp \
 		omp_cluster.cpp
 		
 %.o: %.cc
-	$(CC) $(CFLAGS) -o $@ -c $<
+	$(CC) $(CFLAGS) $(OMPFLAGS) -o $@ -c $<
  
 OMP_OBJ = 	$(OMP_SRC:%.cpp=%.o)
 

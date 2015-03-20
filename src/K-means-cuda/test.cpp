@@ -28,10 +28,16 @@ int main(int argc, char* argv[])
   PointId num_points = num_pts;
   Dimensions num_dimensions = dim;
   
+  stopwatch_init ();
+  struct stopwatch_t* timer_mem = stopwatch_create (); assert (timer_mem);
+  stopwatch_start (timer_mem);
 
   
   PointsSpace ps(num_points, num_dimensions, filename);
 
+  long double t_seq_mem = stopwatch_stop (timer_mem);
+  std::cout <<  "time initializing sequential memory is :"<< t_seq_mem << std::endl;
+  
   #ifdef VERBOSE
   	std::cout << ps;
   	std::cout << "###" << std::endl;
