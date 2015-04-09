@@ -4,7 +4,7 @@
 #include "boost/multi_array.hpp"
 #include "cuda_utils.h"
 #include <cassert>
-#include "cuPrintf.cu"
+//#include "cuPrintf.cu"
 
 #define EPSILON 0.0001
 #define NODEBUG 
@@ -182,11 +182,11 @@ gpuKmeans(	int num_pts,	//number of points in space
     	CUDA_CHECK_ERROR(cudaMemcpy(dPreviousClusters, transClusters[0], 	
 		k * dim *sizeof(float), cudaMemcpyHostToDevice));
 	//find best cluster
-	cudaPrintfInit();
+	//cudaPrintfInit();
 	find_best_cluster<<< numClusterBlocks, numThreadsPerClusterBlock, clusterBlockSharedDataSize>>>
 	(num_pts, dim, k, dSpace, dPreviousClusters, dMapping);	
-	cudaPrintfDisplay(stdout, true);
-  	cudaPrintfEnd();
+	//cudaPrintfDisplay(stdout, true);
+  	//cudaPrintfEnd();
         cudaDeviceSynchronize();
 	
 	
